@@ -243,6 +243,15 @@ img {
 #reported {
   display: none;
 }
+.answer-text {
+  color: green;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.answer {
+  text-align: justify;
+  font-size: 18px;
+}
 
 @media only screen and (max-width: 992px) {
   #posts {
