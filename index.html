@@ -92,7 +92,7 @@
     <!-- bonus part section -->
     <section class="container mt-3">
       <h2 class="text-center text-primary my-3">Bonus Part</h2>
-      <div class="row g-5">
+      <div class="row g-4">
         <div class="col-lg-6 col-12">
           <h3>
             <span class="text-danger">Question - 1: </span>How does javascript
@@ -123,7 +123,37 @@
             <span class="text-danger">Question - 2: </span>Difference between
             local storage and session storage?
           </h3>
-          <p class="answer"><span class="answer-text fs-5">Answer: </span></p>
+          <p class="answer">
+            <span class="answer-text fs-5">Answer:</span><br />
+            <span
+              ><p class="text-center fw-bold text-decoration-underline">
+                Local Storage
+              </p></span
+            >
+            <br />
+            This read-only interface feature provides access to the document's
+            local storage object, and stored data is stored throughout the
+            browser session. As with session storage, the local storage data is
+            cleared when the page session is over - that is, when the page is
+            closed. This is cleared when the last "Private" tab of the browser
+            is closed.
+            <br />
+            <span>
+              <p class="text-center mt-3 fw-bold text-decoration-underline">
+                Session Storage
+              </p></span
+            ><br />
+            A unique page session is created when a document is loaded in the
+            Browser tab. Page sessions are only valid for one tab. Pages are
+            saved at a time only when the tab or browser is open; They do not
+            survive after the page is reloaded and restored. A new session is
+            created each time a tab or window is opened; This is different from
+            session cookies. Each tab / window opened with the same URL creates
+            its own session storage. When you duplicate a tab, the session
+            storage from the main tab is copied to the Duplicate tab. Closing a
+            window / tab closes the session and clears the session storage
+            objects.
+          </p>
         </div>
       </div>
     </section>
