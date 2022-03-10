@@ -14,12 +14,12 @@ const getReportedPosts = () => {
 const isLiked = (id) => {
   return likedPostsId?.length && !!likedPostsId.includes(id);
 };
-
+// add liked post liked post tab
 const addToLiked = (id) => {
   likedPostsId.push(id);
   showPosts(posts);
 };
-
+// add reported post report tab
 const reportPost = (id) => {
   reportedPostsId.push(id);
   const remainingPosts = posts.filter(
@@ -27,33 +27,36 @@ const reportPost = (id) => {
   );
   showPosts(remainingPosts);
 };
-
+// function for text from post
 const displayContent = (text) => {
   return text.length < 30
     ? text
     : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
 };
-
+// funtion for show switch tabs
 const switchTab = (id) => {
   if (id === "posts") {
     document.getElementById("posts").style.display = "grid";
     document.getElementById("liked").style.display = "none";
     document.getElementById("reported").style.display = "none";
+    document.getElementById("bonus-part").style.display = "block";
   } else if (id === "liked") {
     document.getElementById("liked").style.display = "block";
     document.getElementById("posts").style.display = "none";
     document.getElementById("reported").style.display = "none";
+    document.getElementById("bonus-part").style.display = "none";
 
     displayLikedPosts();
   } else {
     document.getElementById("reported").style.display = "block";
     document.getElementById("posts").style.display = "none";
     document.getElementById("liked").style.display = "none";
+    document.getElementById("bonus-part").style.display = "none";
 
     displayReportedPosts();
   }
 };
-
+// create posts
 const createPost = (post) => {
   const image = post.image;
   const userImage = post.userImage;
@@ -140,35 +143,36 @@ const createPost = (post) => {
       `;
   return div;
 };
-
+// display homepage
 const showPosts = (posts) => {
   const productsContainer = document.getElementById("posts");
   productsContainer.innerHTML = "";
-
   posts.forEach((post) => {
     const div = createPost(post);
     productsContainer.appendChild(div);
   });
 };
-
+// display liked posts
 const displayLikedPosts = () => {
   document.getElementById("liked").innerHTML = "";
+
   const likedPosts = getLikedPosts();
   likedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("liked").appendChild(div);
   });
 };
-
+// display reported posts
 const displayReportedPosts = () => {
   document.getElementById("reported").innerHTML = "";
+
   const reportedPosts = getReportedPosts();
   reportedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("reported").appendChild(div);
   });
 };
-
+// load post from json
 const loadPosts = async () => {
   let data = await fetch("../data/posts.json");
   posts = await data.json();
